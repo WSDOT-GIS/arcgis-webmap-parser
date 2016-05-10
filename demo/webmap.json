@@ -1,0 +1,211 @@
+{
+  "operationalLayers": [
+    {
+      "id": "MilepostValues",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/MilepostValues/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Milepost Values",
+      "itemId": "03ec5ff3609f45caa849d5afa4d92e9e"
+    },
+    {
+      "id": "Rail",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/Rail/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Railroads",
+      "itemId": "bf6946236eac4d03a6e789559e66061a"
+    },
+    {
+      "id": "WSDOTFunctionalClassMap",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/FunctionalClass/WSDOTFunctionalClassMap/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Functional Class",
+      "itemId": "5fa0e9671d104edfadb7fa4e7f9ed17f"
+    },
+    {
+      "id": "StateRoutes",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/StateRoutes/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "State Routes",
+      "itemId": "9bb8291584784d1798018af06b7230e0"
+    },
+    {
+      "id": "RegionBoundaries",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/RegionBoundaries/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Region Boundaries",
+      "itemId": "1c0845bd12944017b3bb3631bda09e0e"
+    },
+    {
+      "id": "MaintenanceAreas",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/MaintenanceAreas/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Maintenance Areas",
+      "itemId": "932a28434f214e40b30f2085e21c7012"
+    },
+    {
+      "id": "TribalReservationLands",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/TribalReservationLands/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Tribal Reservation and Trust Lands",
+      "itemId": "6388822ea6ac4270a0194ac5a147cf14"
+    },
+    {
+      "id": "TownshipSection",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/TownshipSection/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Township, Range & Section",
+      "itemId": "97a5ae98d8d04458860f64e201d155c4"
+    },
+    {
+      "id": "RegionalTransportationPlanning",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/RegionalTransportationPlanning/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Regional Transportation Planning Organization",
+      "itemId": "d1de4f2d8a8348e0af97c858c7cff8ad"
+    },
+    {
+      "id": "MetroPlanningAreas",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/MetroPlanningAreas/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Metropolitan Planning Areas",
+      "itemId": "eb41261114aa4802abcf7a3626f10da3"
+    },
+    {
+      "id": "LegislativeDistricts",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/LegislativeDistricts/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Legislative Districts",
+      "itemId": "f6d17366bae34d5f996386c2d46263ec"
+    },
+    {
+      "id": "CountyBoundaries",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/CountyBoundaries/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "County Boundaries",
+      "itemId": "fe229f9df5aa4289b8ccd2a99289951b"
+    },
+    {
+      "id": "CongressionalDistricts",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/CongressionalDistricts/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Congressional Districts",
+      "itemId": "096b0482b7f74cd882cc337dc57d6957"
+    },
+    {
+      "id": "CityLimits",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/CityLimits/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "City Limits",
+      "itemId": "bb7c67c334be494c88cf00ebb91fe51f"
+    },
+    {
+      "id": "InterchangeDrawings",
+      "layerType": "ArcGISMapServiceLayer",
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/InterchangeDrawings/MapServer",
+      "visibility": false,
+      "opacity": 1,
+      "title": "Interchange Drawings",
+      "itemId": "39b4acdb7e0d4ef19252db5c37b8a719"
+    }
+  ],
+  "baseMap": {
+    "baseMapLayers": [
+      {
+        "id": "WebBaseMapWebMercator",
+        "layerType": "ArcGISTiledMapServiceLayer",
+        "opacity": 1,
+        "visibility": true,
+        "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/WebBaseMapWebMercator/MapServer"
+      }
+    ],
+    "title": "WSDOT Basemap"
+  },
+  "spatialReference": {
+    "wkid": 102100,
+    "latestWkid": 3857
+  },
+  "version": "2.1",
+  "tables": [
+    {
+      "url": "http://data.wsdot.wa.gov/ArcGIS/rest/services/Shared/TribalReservationLands/MapServer/1",
+      "id": "TribalReservationLands",
+      "title": "TribalReservationLands - TribalReservationLands",
+      "popupInfo": {
+        "title": "TribalReservationLands: {CensusNames}",
+        "fieldInfos": [
+          {
+            "fieldName": "OBJECTID",
+            "label": "OBJECTID",
+            "tooltip": "",
+            "visible": false,
+            "format": null,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "CensusNames",
+            "label": "CensusNames",
+            "tooltip": "",
+            "visible": true,
+            "format": null,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "Contacts",
+            "label": "Contacts",
+            "tooltip": "",
+            "visible": true,
+            "format": null,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "GOIATribalDirectory",
+            "label": "GOIATribalDirectory",
+            "tooltip": "",
+            "visible": true,
+            "format": null,
+            "stringFieldOption": "textbox"
+          },
+          {
+            "fieldName": "FederalRegister",
+            "label": "FederalRegister",
+            "tooltip": "",
+            "visible": true,
+            "format": null,
+            "stringFieldOption": "textbox"
+          }
+        ],
+        "description": null,
+        "showAttachments": true,
+        "mediaInfos": [ ]
+      }
+    }
+  ]
+}
