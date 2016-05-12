@@ -5,6 +5,10 @@ define([
     "esri/layers/MapImageLayer",
     "esri/layers/TileLayer"
 ], function (esriMap, MapView, BaseMap, MapImageLayer, TileLayer) {
+    /**
+     * @module webmapUtils
+     */
+
     var layerTypeMappings = new Map();
     [
         ["ArcGISMapServiceLayer", MapImageLayer],
@@ -24,7 +28,16 @@ define([
         return v;
     }
 
+    /**
+     *
+     * @alias module:webmapUtils
+     */
     var exports = {
+        /**
+         * Parses ArcGIS webmap JSON into a Map.
+         * @param {string} json - ArcGIS webmap JSON.
+         * @returns {external:esri/Map}
+         */
         parseWebmap: function (json) {
             var webmap = JSON.parse(json, reviver);
             var map = new esriMap({

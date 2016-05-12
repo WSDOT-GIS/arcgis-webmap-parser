@@ -7,10 +7,11 @@ html, body, #viewDiv {
 
 .layer-list {
     list-style: none;
-    background-color: white;
-    padding: 0;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.5em 1em 0.5em 1em;
     margin: 0;
     height: 100%;
+    border-radius: 1em;
 }
 
 .layer-list > li {
