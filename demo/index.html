@@ -10,7 +10,15 @@
 <body>
     <div id="viewDiv"></div>
     <script>
-
+        var dojoConfig = {
+            packages: [
+                {
+                    name: "webmapUtils",
+                    location: "//..",
+                    main: "webmapUtils"
+                }
+            ]
+        }
     </script>
     <script src="//js.arcgis.com/4.0/"></script>
     <script src="index.js"></script>

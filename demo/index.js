@@ -1,42 +1,13 @@
 require([
-    "esri/Map",
+    "webmapUtils",
     "esri/views/MapView",
-    "esri/Basemap",
-    "esri/layers/MapImageLayer",
-    "esri/layers/TileLayer",
     "dojo/text!./lods.json",
     "dojo/text!./webmap.json"
-], function (esriMap, MapView, BaseMap, MapImageLayer, TileLayer, lods, webmap) {
+], function (webmapUtils, MapView, lods, webmap) {
 
     lods = JSON.parse(lods);
 
-    var typeMappings = new Map();
-
-    [
-        ["ArcGISMapServiceLayer", MapImageLayer],
-        ["ArcGISTiledMapServiceLayer", TileLayer]
-    ].forEach(function (kvArray) {
-        typeMappings.set(kvArray[0], kvArray[1]);
-    });
-
-    var reviver = function (k, v) {
-        if (v && typeof v === "object") {
-            if (v.layerType && typeMappings.has(v.layerType)) {
-                return new (typeMappings.get(v.layerType))(v);
-            } else if (k === "baseMap") {
-                return BaseMap.fromJSON(v);
-            }
-        }
-        return v;
-    };
-
-    webmap = JSON.parse(webmap, reviver);
-
-    var map = new esriMap({
-        basemap: webmap.baseMap,
-        layers: webmap.operationalLayers
-
-    });
+    var map = webmapUtils.parseWebmap(webmap);
 
     /**
      * Toggles the visibility of a layer associated with a checkbox.
