@@ -1,4 +1,4 @@
-define(function () {
+define(["esri/Map"], function (esriMap) {
     /**
      * @module LayerList
      */
@@ -6,19 +6,20 @@ define(function () {
     /**
      * @alias module:LayerList
      * @class
-     * @param {external:esri/views/View}
+     * @param {external:esri/Map} map - ArcGIS API map.
      */
-    function LayerList(view) {
-        var list = createLayerList(view);
+    function LayerList(map) {
+        var list = createLayerList(map);
 
         /**
          * Toggles the visibility of a layer associated with a checkbox.
+         * @private
          * @param {Event} e - Checkbox click event.
          */
         function toggleLayer(e) {
             var checkbox = e.target;
             var id = checkbox.value;
-            var layer = view.map.findLayerById(id);
+            var layer = map.findLayerById(id);
             if (layer) {
                 layer.visible = checkbox.checked;
             }
@@ -46,13 +47,20 @@ define(function () {
         }
 
         /**
-         * Creates a layer list from a view.
-         * @param {external:esri/views/View} view - A view of a map.
+         * Creates a layer list from a map.
+         * @private
+         * @param {external:esri/Map} map - An ArcGIS map.
+         * @returns {HTMLUListElement} - Returns an HTML list.
          */
-        function createLayerList(view) {
+        function createLayerList(map) {
+
+            if (!(map && map.instanceOf && map.instanceOf(esriMap))) {
+                throw new TypeError("Invalid map");
+            }
+
             var list = document.createElement("ul");
             var docFrag = document.createDocumentFragment();
-            view.map.layers.forEach(function (layer) {
+            map.layers.forEach(function (layer) {
                 var li = createListItem(layer);
                 docFrag.appendChild(li);
             });
@@ -63,14 +71,20 @@ define(function () {
         }
 
         Object.defineProperties(this, {
+            /**
+             * @member {HTMLUListElement} list - HTML list element.
+             */
             list: {
                 value: list
             },
-            view: {
-                value: view
+            /**
+             * @member {external:esri/Map} map - The map containing the layers.
+             */
+            map: {
+                value: map
             }
         });
     }
 
     return LayerList;
-})
+});

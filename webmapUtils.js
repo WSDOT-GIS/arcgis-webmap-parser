@@ -6,7 +6,14 @@ define([
     "esri/layers/TileLayer"
 ], function (esriMap, MapView, BaseMap, MapImageLayer, TileLayer) {
     /**
+     * Module used for parsing {@link http://resources.arcgis.com/en/help/arcgis-rest-api/index.html#/Web_map_data/02r30000003p000000/|ArcGIS REST API webmap JSON}
+     * into {@link https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html|ArcGIS API for JavaScript map} objects.
      * @module webmapUtils
+     */
+
+    /**
+     * @external esri/Map
+     * @see {@link https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html esri/Map}
      */
 
     var layerTypeMappings = new Map();
@@ -36,7 +43,7 @@ define([
         /**
          * Parses ArcGIS webmap JSON into a Map.
          * @param {string} json - ArcGIS webmap JSON.
-         * @returns {external:esri/Map}
+         * @returns {external:esri/Map} - Returns an ArcGIS API map.
          */
         parseWebmap: function (json) {
             var webmap = JSON.parse(json, reviver);
@@ -47,7 +54,7 @@ define([
             });
             return map;
         }
-    }
+    };
 
     return exports;
 });

@@ -35,7 +35,7 @@ require([
             minZoom: 7
         }
     }).then(function (view) {
-        var layerList = new LayerList(view);
+        var layerList = new LayerList(view.map);
         view.ui.add(layerList.list, "top-right");
     });
 })

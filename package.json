@@ -4,7 +4,7 @@
   "description": "Parses ArcGIS Online Webmap format JSON",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "docs": "jsdoc2md webmapUtils.js LayerList.js --template README.hbs > README.md"
   },
   "keywords": [
     "ArcGIS",
@@ -16,5 +16,6 @@
   ],
   "author": "WSDOT",
   "license": "Unlicense",
-  "private": true
+  "private": true,
+  "devDependencies": {}
 }
