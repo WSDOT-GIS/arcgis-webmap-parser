@@ -2,9 +2,21 @@ require([
     "webmapUtils",
     "webmapUtils/LayerList",
     "esri/views/MapView",
+    "esri/widgets/Home",
+    "esri/widgets/Legend",
+    "esri/widgets/Search",
     "dojo/text!./lods.json",
     "dojo/text!./webmap.json"
-], function (webmapUtils, LayerList, MapView, lods, webmap) {
+], function (
+    webmapUtils,
+    LayerList,
+    MapView,
+    Home,
+    Legend,
+    Search,
+    lods,
+    webmap
+) {
 
     lods = JSON.parse(lods);
 
@@ -23,19 +35,39 @@ require([
         }
     }
 
-
-
-    var mapView = new MapView({
+    var view = new MapView({
         map: map,
         container: "viewDiv",
         zoom: 8,
         center: [-120.85, 47.295],
+        ui: {
+            components: [
+                "zoom",
+                "compass",
+                "attribution"
+            ]
+        },
         constraints: {
             lods: lods,
             minZoom: 7
         }
-    }).then(function (view) {
-        var layerList = new LayerList(view.map);
-        view.ui.add(layerList.list, "top-right");
     });
-})
+
+    var home = new Home({ view: view });
+    home.startup();
+    view.ui.add(home, "top-left");
+
+    var search = new Search({ view: view });
+    search.startup();
+    view.ui.add(search, "top-right");
+
+    var legend = new Legend({
+        view: view
+    });
+    legend.startup();
+    view.ui.add(legend, "bottom-left");
+
+    var layerList = new LayerList(map);
+    view.ui.add(layerList.domNode, "top-right");
+
+});

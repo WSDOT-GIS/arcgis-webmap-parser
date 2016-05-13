@@ -1,4 +1,4 @@
-define(["esri/Map"], function (esriMap) {
+define(["esri/widgets/Widget"], function (Widget) {
     /**
      * @module LayerList
      */
@@ -54,23 +54,33 @@ define(["esri/Map"], function (esriMap) {
          */
         function createLayerList(map) {
 
-            if (!(map && map.instanceOf && map.instanceOf(esriMap))) {
+            if (!(map && map.layers)) {
                 throw new TypeError("Invalid map");
             }
 
             var list = document.createElement("ul");
             var docFrag = document.createDocumentFragment();
+
             map.layers.forEach(function (layer) {
                 var li = createListItem(layer);
-                docFrag.appendChild(li);
+                docFrag.insertBefore(li, docFrag.firstChild);
             });
 
-            list.classList.add("layer-list");
+
             list.appendChild(docFrag);
             return list;
         }
 
+        var rootNode = document.createElement("div");
+        rootNode.classList.add("layer-list");
+        rootNode.classList.add("esri-widget");
+
+        rootNode.appendChild(list);
+
         Object.defineProperties(this, {
+            domNode: {
+                value: rootNode
+            },
             /**
              * @member {HTMLUListElement} list - HTML list element.
              */
