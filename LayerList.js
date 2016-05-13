@@ -1,6 +1,17 @@
 define(["esri/widgets/Widget"], function (Widget) {
     /**
+     * A simple layer list control for ArcGIS API for JavaScript v4.0.
+     * At version 4.1, Esri is supposed to be adding their own layer list
+     * widget to the API. When that happens, this module should no longer
+     * be necessary.
+     *
+     * Note that this module isn't actually an ArcGIS API widget, so it
+     * works slightly differently that standard widgets do.
      * @module LayerList
+     * @example
+     * // map (esri/Map) and view (esri/views/View) have already been created.
+     * var layerList = new LayerList(map);
+     * view.ui.add(layerList.domNode, "top-right");
      */
 
     /**

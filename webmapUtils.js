@@ -8,6 +8,7 @@ define([
     /**
      * Module used for parsing {@link http://resources.arcgis.com/en/help/arcgis-rest-api/index.html#/Web_map_data/02r30000003p000000/|ArcGIS REST API webmap JSON}
      * into {@link https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html|ArcGIS API for JavaScript map} objects.
+     * TODO: Check to see if this is already supported in API via WebMap. Docs don't mention constructing a map from JSON files, only from ArcGIS Online IDs.
      * @module webmapUtils
      */
 
@@ -35,10 +36,6 @@ define([
         return v;
     }
 
-    /**
-     *
-     * @alias module:webmapUtils
-     */
     var exports = {
         /**
          * Parses ArcGIS webmap JSON into a Map.

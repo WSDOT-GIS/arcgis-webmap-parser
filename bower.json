@@ -1,11 +1,11 @@
 {
   "name": "arcgis-webmap-parser",
-  "version": "0.0.1",
   "description": "Parses ArcGIS Online Webmap format JSON",
   "main": "webmapUtils.js",
-  "scripts": {
-    "docs": "jsdoc2md webmapUtils.js LayerList.js --template README.hbs > README.md"
-  },
+  "authors": [
+    "WSDOT"
+  ],
+  "license": "Unlicense",
   "keywords": [
     "ArcGIS",
     "Esri",
@@ -14,8 +14,13 @@
     "JSON",
     "parse"
   ],
-  "author": "WSDOT",
-  "license": "Unlicense",
+  "homepage": "https://github.com/WSDOT-GIS/arcgis-webmap-parser",
   "private": true,
-  "devDependencies": {}
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
