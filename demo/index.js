@@ -67,7 +67,7 @@ require([
     legend.startup();
     view.ui.add(legend, "bottom-left");
 
-    var layerList = new LayerList(map);
+    var layerList = new LayerList(view);
     view.ui.add(layerList.domNode, "top-right");
 
 });

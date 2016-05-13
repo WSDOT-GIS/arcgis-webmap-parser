@@ -1,4 +1,5 @@
 define(["esri/widgets/Widget"], function (Widget) {
+    "use strict";
     /**
      * A simple layer list control for ArcGIS API for JavaScript v4.0.
      * At version 4.1, Esri is supposed to be adding their own layer list
@@ -8,19 +9,15 @@ define(["esri/widgets/Widget"], function (Widget) {
      * Note that this module isn't actually an ArcGIS API widget, so it
      * works slightly differently that standard widgets do.
      * @module LayerList
-     * @example
-     * // map (esri/Map) and view (esri/views/View) have already been created.
-     * var layerList = new LayerList(map);
-     * view.ui.add(layerList.domNode, "top-right");
      */
 
     /**
      * @alias module:LayerList
      * @class
-     * @param {external:esri/Map} map - ArcGIS API map.
+     * @param {external:esri/views/View} view - ArcGIS API view.
      */
-    function LayerList(map) {
-        var list = createLayerList(map);
+    function LayerList(view) {
+        var list = document.createElement("ul");
 
         /**
          * Toggles the visibility of a layer associated with a checkbox.
@@ -30,7 +27,7 @@ define(["esri/widgets/Widget"], function (Widget) {
         function toggleLayer(e) {
             var checkbox = e.target;
             var id = checkbox.value;
-            var layer = map.findLayerById(id);
+            var layer = view.map.findLayerById(id);
             if (layer) {
                 layer.visible = checkbox.checked;
             }
@@ -38,6 +35,7 @@ define(["esri/widgets/Widget"], function (Widget) {
 
         function createListItem(layer) {
             var li = document.createElement("li");
+            li.dataset.layerId = layer.id;
 
             var checkbox = document.createElement("input");
             checkbox.type = "checkbox";
@@ -57,30 +55,19 @@ define(["esri/widgets/Widget"], function (Widget) {
             return li;
         }
 
-        /**
-         * Creates a layer list from a map.
-         * @private
-         * @param {external:esri/Map} map - An ArcGIS map.
-         * @returns {HTMLUListElement} - Returns an HTML list.
-         */
-        function createLayerList(map) {
+        view.on("layerview-create", function (e) {
+            var li = createListItem(e.layer);
+            list.insertBefore(li, list.firstChild);
+        });
 
-            if (!(map && map.layers)) {
-                throw new TypeError("Invalid map");
+        // Remove corresponding list item when a layer is removed.
+        view.on("layerview-destroy", function (e) {
+            var id = e.layer.id;
+            var listItem = list.querySelector("[data-layer-id='" + id + "'");
+            if (listItem) {
+                listItem.parentElement.removeChild(listItem);
             }
-
-            var list = document.createElement("ul");
-            var docFrag = document.createDocumentFragment();
-
-            map.layers.forEach(function (layer) {
-                var li = createListItem(layer);
-                docFrag.insertBefore(li, docFrag.firstChild);
-            });
-
-
-            list.appendChild(docFrag);
-            return list;
-        }
+        });
 
         var rootNode = document.createElement("div");
         rootNode.classList.add("layer-list");
@@ -99,10 +86,10 @@ define(["esri/widgets/Widget"], function (Widget) {
                 value: list
             },
             /**
-             * @member {external:esri/Map} map - The map containing the layers.
+             * @member {external:esri/views/View} view - The view of the map containing the layers.
              */
-            map: {
-                value: map
+            view: {
+                value: view
             }
         });
     }
